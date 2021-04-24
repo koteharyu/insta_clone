@@ -1,0 +1,15 @@
+current directory: /Users/haryu/Documents/insta_clone/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+/opt/homebrew/Cellar/rbenv/1.1.2/versions/2.6.6/bin/ruby -I /opt/homebrew/Cellar/rbenv/1.1.2/versions/2.6.6/lib/ruby/2.6.0 -r ./siteconf20210424-92626-xtwm2b.rb extconf.rb
+creating Makefile
+
+current directory: /Users/haryu/Documents/insta_clone/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/haryu/Documents/insta_clone/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/haryu/Documents/insta_clone/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20210424-92626-1a9ztt2/skiptrace/internal
