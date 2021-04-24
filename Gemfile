@@ -36,6 +36,7 @@ gem 'slim-rails'
 gem 'html2slim'
 gem 'annotate'
 gem 'jquery-rails'
+gem 'redis-rails'
 
 
 group :development, :test do
