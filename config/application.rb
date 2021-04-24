@@ -15,6 +15,12 @@ module InstaClone
     # i18nのための設定
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+
+      config.generators do |g|
+        g.assets false          # CSS/JSファイルを生成しない
+        g.skip_routes false     # trueなら routes.rbを変更する
+        g.test_framework false  # テストファイルを作成しない
+      end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
