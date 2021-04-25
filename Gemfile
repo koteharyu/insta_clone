@@ -38,6 +38,7 @@ gem 'annotate'
 gem 'jquery-rails'
 gem 'redis-rails'
 gem 'rails-i18n', '~> 5.1'
+gem 'sorcery'
 
 
 group :development, :test do

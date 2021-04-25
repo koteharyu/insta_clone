@@ -8,4 +8,16 @@ html
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   body
-    = yield
+    nav.navbar.navbar-default.mb-3
+      .container-fluid 
+        .nabvar-header 
+          = link_to "InstaClone", users_path, class: "navbar-brand"
+        ul.navbar-nav
+          li.nav-item= link_to "ポスト一覧", "#", class: "nav-link"
+          li.nav-item= link_to "ログイン", login_path, class: "nav-link"
+    .container 
+      = flash_message(flash[:success], :success) if flash[:success]
+      = flash_message(flash[:error], :danger) if flash[:danger]
+      = flash_message(flash[:alert], :warning) if flash[:alert]
+      = flash_message(flash[:notice], :info) if flash[:notice]
+      = yield

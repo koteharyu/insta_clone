@@ -1,0 +1,18 @@
+.container.mt-5
+  .row.d-flex.justify-content-center
+    .card style="width: 20rem" 
+      .card-body 
+        = form_with model: @user, local: true do |f|
+          .form-group 
+            = f.label :name, class: "text-muted"
+            = f.text_field :name, class: "form-control"
+          .form-group 
+            = f.label :email, class: "text-muted"
+            = f.email_field :email, class: "form-control"
+          .form-group 
+            = f.label :password, class: "text-muted"
+            = f.password_field :password, class: "form-control"
+          .form-group 
+            = f.label :password_confirmation, class: "text-muted"
+            = f.password_field :password_confirmation, class: "form-control"
+          = f.submit class: "btn btn-raised btn-primary"
