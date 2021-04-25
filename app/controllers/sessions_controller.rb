@@ -1,19 +1,19 @@
 class SessionsController < ApplicationController
-  
-  def new
-  end
+  def new; end
 
   def create
-    if @user = login(params[:email], params[:password])
-      redirect_to users_path, notice: "#{@user.name}としてログインしました"
+    @user = login(params[:email], params[:password])
+
+    if @user
+      redirect_back_or_to root_path, success: 'ログインしました'
     else
+      flash.now[:danger] = 'ログインに失敗しました'
       render :new
     end
   end
 
   def destroy
     logout
-    redirect_to login_path, notice: "ログアウトしました"
+    redirect_to root_path, success: 'ログアウトしました'
   end
-
 end

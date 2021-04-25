@@ -1,9 +1,4 @@
 class UsersController < ApplicationController
-  before_action :require_login, only: :index
-
-  def index
-  end
-
   def new
     @user = User.new
   end
@@ -11,15 +6,17 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_path
+      auto_login(@user)
+      redirect_to login_path, success: 'ユーザーを作成しました'
     else
+      flash.now[:danger] = 'ユーザーの作成に失敗しました'
       render :new
     end
   end
 
   private
-    def user_params
-      params.require(:user).permit(:name, :email, :password)
-    end
- 
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password)
+  end
 end
