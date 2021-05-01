@@ -33,6 +33,9 @@ Rails.application.routes.draw do
   resources :posts, shallow: true do
     resources :comments
     resources :likes, only: [:create, :destroy]
+    collection do
+      get :like_posts
+    end
   end
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
