@@ -30,7 +30,9 @@
 Rails.application.routes.draw do
   root 'users#new'
   resources :users
-  resources :posts
+  resources :posts, shallow: true do
+    resources :comments
+  end
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

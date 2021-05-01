@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :require_login, only: %i[new create edit update destroy]
+
   def index
     @posts = Post.all.includes(:user).page(params[:page]).order(created_at: :desc).per(15)
   end
@@ -19,14 +20,16 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments.includes(:user).order(created_at: :desc)
+    @comment = Comment.new
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
     if @post.update(post_params)
       redirect_to posts_path, notice: "投稿を編集しました"
     else
@@ -35,7 +38,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
     @post.destroy!
     redirect_to posts_path
   end
