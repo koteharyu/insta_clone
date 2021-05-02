@@ -43,6 +43,11 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def like_posts
+    @posts = current_user.like_posts.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
+    render :index
+  end
+
   private
     def post_params
       params.require(:post).permit(:body, images: [])
