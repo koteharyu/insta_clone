@@ -29,6 +29,7 @@
 
 Rails.application.routes.draw do
   root 'users#new'
+  resources :relationships, only: [:create, :destroy]
   resources :users
   resources :posts, shallow: true do
     resources :comments
