@@ -44,7 +44,7 @@ class PostsController < ApplicationController
   end
 
   def like_posts
-    @posts = current_user.like_posts.includes(:user).page(params[:page]).per(10)
+    @posts = current_user.like_posts.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
     render :index
   end
 
