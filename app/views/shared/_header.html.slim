@@ -11,7 +11,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-white
         = link_to new_post_path, class: "nav-link" do
           = icon 'far', 'image', class: 'fa-lg'
       li.nav-item
-        a.nav-link href="#"
+        = link_to like_posts_posts_path, class: "nav-link" do
           = icon 'far', 'heart', class: 'fa-lg'
       li.nav-item
         a.nav-link href="#"
