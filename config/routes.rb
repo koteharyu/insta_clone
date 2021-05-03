@@ -49,6 +49,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
     collection do
       get :like_posts
+      get :search
     end
   end
   get '/login', to: 'sessions#new'
