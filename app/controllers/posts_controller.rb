@@ -61,6 +61,12 @@ class PostsController < ApplicationController
     render :index
   end
 
+  def search
+    # form_withのscopeでsearchを指定することで、searchがパラメーターの頭につく
+    @search_form = SearchPostsForm.new(params.require(:search).permit(:body))
+    @posts = @search_form.search.includes(:user).page(params[:page])
+  end
+
   private
     def post_params
       params.require(:post).permit(:body, images: [])
