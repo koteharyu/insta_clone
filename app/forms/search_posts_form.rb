@@ -5,7 +5,7 @@ class SearchPostsForm
   attribute :body, :string
 
   def search
-    scope = Poat.all
+    scope = Post.all
     scope = scope.body_contain(body) if body.present?
     scope
   end

@@ -28,5 +28,5 @@ class Post < ApplicationRecord
   validates :images, presence: true
 
   # wordをに部分一致するpostsに絞り込み
-  scope :body_contain, -> (word) { where('posts.body LIKE ?', "%#{word}%")  }
+  scope :body_contain, -> (word) { where('posts.body LIKE ?', "%#{word}%") }
 end
