@@ -57,7 +57,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   namespace :mypage do
-    resources :account, only: %i[edit update]
+    resources :account, only: [:edit, :update]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
