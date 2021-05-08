@@ -5,6 +5,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
+  # 画像の保存先が、public/uploads配下になる
   storage :file
   # storage :fog
 
