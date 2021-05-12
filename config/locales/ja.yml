@@ -10,6 +10,7 @@ ja:
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
         name: 'ユーザー名'
+        avatar: 'アバター'
       post:
           body: '本文'
           image: '画像'
